@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
+else
+{
+    <form method="post">
+        <label for="email">Email:</label>
+        <input asp-for="InputEmail" />
+        <button type="submit">Send Login Link</button>
+    </form>
+}
+

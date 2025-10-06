@@ -1,0 +1,51 @@
+﻿@page
+@model ParticipantJoinModel
+@{
+    ViewData["Title"] = "Join Group";
+}
+
+<h2>Join Group: @Model.GroupName</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Input.GroupId" />
+
+    <div class="mb-3">
+        <label asp-for="Input.Name" class="form-label"></label>
+        <input asp-for="Input.Name" class="form-control" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Input.Email" class="form-label"></label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="Input.GroupNumber" class="form-label"></label>
+        <input asp-for="Input.GroupNumber" class="form-control" />
+        <span asp-validation-for="Input.GroupNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Allergies</label>
+        <div>
+            @foreach (var allergy in Model.Allergies)
+            {
+                <div class="form-check">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="Input.SelectedAllergyIds"
+                           value="@allergy.Id"
+                           id="allergy_@allergy.Id" />
+
+                    <label class="form-check-label" for="allergy_@allergy.Id">
+                        @allergy.Name
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Join Group</button>
+</form>

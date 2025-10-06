@@ -1,0 +1,23 @@
+﻿services:
+  carrefourpolaire:
+    image: carrefourpolaire
+    build:
+      context: .
+      dockerfile: Dockerfile
+  db:
+    image: postgres:16
+    container_name: eventsite-db
+    restart: always
+    environment:
+      POSTGRES_USER: eventuser
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_DB: eventdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+    
+

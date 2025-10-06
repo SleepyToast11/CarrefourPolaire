@@ -1,0 +1,31 @@
+/* _content/CarrefourPolaire/Pages/Shared/_Layout.cshtml.rz.scp.css */
+:root[b-9wo47002ch] {
+  --primary-orange: #ff7b00;
+  --primary-dark: #d62828;
+  --success-green: #2a9d8f;
+  --danger-red: #e63946;
+}
+
+/* Text colors */
+.text-orange[b-9wo47002ch] { color: var(--primary-orange) !important; }
+.text-darkorange[b-9wo47002ch] { color: var(--primary-dark) !important; }
+
+/* Buttons */
+.btn-orange[b-9wo47002ch] { background-color: var(--primary-orange); color: white; }
+.btn-orange:hover[b-9wo47002ch] { background-color: var(--primary-dark); }
+
+/* Forms */
+.form-control:focus[b-9wo47002ch] {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 0.25rem rgba(255, 123, 0, 0.25);
+}
+
+/* Navbar brand */
+.navbar-brand[b-9wo47002ch] { color: var(--primary-orange) !important; }
+
+/* Card / panel style */
+.card-custom[b-9wo47002ch] {
+  border: 2px solid var(--primary-orange);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 0.5rem;
+}
