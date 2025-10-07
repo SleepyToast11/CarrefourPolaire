@@ -46,7 +46,7 @@ public class IndexModel : PageModel
             await _context.SaveChangesAsync();
 
             var loginLink = Url.Page(
-                "/LoginConfirm",
+                "/Login/LoginConfirm",
                 pageHandler: null,
                 values: new { token = token.Id },
                 protocol: Request.Scheme);

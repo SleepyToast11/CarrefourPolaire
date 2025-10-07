@@ -61,7 +61,7 @@
     </script>
     <script>
     async function confirmParticipant(id) {
-        const response = await fetch('@Url.Page("Dashboard", "Confirm")', {
+        const response = await fetch('@Url.Page("/Dashboard/Index", "Confirm")', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@
     }
     
     async function denyParticipant(id) {
-        const response = await fetch('@Url.Page("Dashboard", "Deny")', {
+        const response = await fetch('@Url.Page("/Dashboard/Index", "Deny")', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@
     <script>
 async function regenerateLink() {
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-    const response = await fetch('@Url.Page("Dashboard", "RegenerateLink")', {
+    const response = await fetch('@Url.Page("/Dashboard/Index", "RegenerateLink")', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

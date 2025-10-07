@@ -1,10 +1,11 @@
+using System.Runtime.CompilerServices;
 using CarrefourPolaire.Data;
 using CarrefourPolaire.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarrefourPolaire.Pages;
+namespace CarrefourPolaire.Pages.Dashboard;
 
 public class ParticipantJoinModel : PageModel
 {

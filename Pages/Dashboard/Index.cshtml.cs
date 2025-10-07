@@ -46,7 +46,7 @@ public async Task<IActionResult> OnGetAsync()
         var token = await _tokenService.GetOrCreateTokenAsync(groupId);
         
         ShareLink = Url.Page(
-            "/ParticipantJoin",
+            "/Dashboard/ParticipantJoin",
             null,
             values: new { token = token.Token },
             Request.Scheme

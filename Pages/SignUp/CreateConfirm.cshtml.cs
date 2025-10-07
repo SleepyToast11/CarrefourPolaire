@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarrefourPolaire.Pages;
+namespace CarrefourPolaire.Pages.SignUp;
 
 public class CreateConfirmModel : PageModel
 {
     public string Message { get; set; } = string.Empty;
     private readonly EventContext _context;
 
-    CreateConfirmModel(EventContext context)
+    public CreateConfirmModel(EventContext context)
     {
         _context = context;
 

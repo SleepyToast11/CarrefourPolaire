@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarrefourPolaire.Pages.SignUp;
 
-public class SignUpGroupModel : PageModel
+public class IndexModel : PageModel
 {
     private readonly EventContext _context;
     private readonly IEmailService _emailService;
 
-    public SignUpGroupModel(EventContext context, IEmailService emailService)
+    public IndexModel(EventContext context, IEmailService emailService)
     {
         _context = context;
         _emailService = emailService;
@@ -52,11 +52,11 @@ public class SignUpGroupModel : PageModel
         };
 
         var loginLink = Url.Page(
-            "./CreateConfirm",
+            "/Signup/CreateConfirm",
             pageHandler: null,
             values: new { token = token.Id },
             protocol: Request.Scheme);
-        
+        Console.WriteLine(loginLink);
         await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
         ErrorMessage = "Check your email for the login link, might be in junk!";
         
