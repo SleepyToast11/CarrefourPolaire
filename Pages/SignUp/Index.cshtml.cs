@@ -52,7 +52,7 @@ public class SignUpGroupModel : PageModel
         };
 
         var loginLink = Url.Page(
-            "/CreateConfirm",
+            "./CreateConfirm",
             pageHandler: null,
             values: new { token = token.Id },
             protocol: Request.Scheme);
