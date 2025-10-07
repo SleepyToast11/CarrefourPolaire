@@ -42,6 +42,11 @@ builder.Services.AddAuthentication("EmailLink")
 
 var app = builder.Build();
 
+using var scope = app.Services.CreateScope();
+var db = scope.ServiceProvider.GetRequiredService<EventContext>();
+db.Database.Migrate();
+
+
 app.UseAuthentication();
 app.UseAuthorization();
 
