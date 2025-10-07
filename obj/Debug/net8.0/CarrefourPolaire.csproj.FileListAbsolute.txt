@@ -139,3 +139,4 @@
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.pdb
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.genruntimeconfig.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/ref/CarrefourPolaire.dll
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.sourcelink.json
