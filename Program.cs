@@ -24,6 +24,8 @@ builder.Services.AddScoped<IInviteTokenService, InviteTokenService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
+Console.WriteLine($"Connection: {builder.Configuration.GetConnectionString("DefaultConnection")}");
 
 // Register DbContext with connection string
 builder.Services.AddDbContext<EventContext>(options =>
