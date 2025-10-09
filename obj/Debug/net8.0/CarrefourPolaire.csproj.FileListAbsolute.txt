@@ -150,3 +150,5 @@
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Signup.Index.resources
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Dashboard.Index.en.resources
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Signup.Index.en.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.About.Index.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.About.Index.en.resources

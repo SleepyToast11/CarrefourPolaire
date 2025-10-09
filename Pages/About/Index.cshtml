@@ -1,54 +1,47 @@
 ﻿@page
 @model IndexModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarrefourPolaire.Resources.Pages.About.Index> L
+
 @{
-    ViewData["Title"] = "À propos du Carrefour Polaire";
+    ViewData["Title"] = L["PageTitle"];
 }
 
 <div class="container mt-4">
-    <h1 class="mb-3">Qu’est-ce que le Carrefour Polaire?</h1>
+    <h1 class="mb-3">@L["WhatIsTitle"]</h1>
 
     <p class="lead">
-        Le <strong>Carrefour Polaire</strong> est un grand rassemblement hivernal des <em>clans routiers</em> du Québec.
-        Chaque année, des dizaines de routiers et routières se réunissent pour partager un moment unique 
-        d’amitié, de fraternité et de défis au cœur de l’hiver québécois.
+        @L["IntroPart1"]
+        <strong>@L["IntroStrongPart"]</strong>
+        @L["IntroPart2"]
+        <em>@L["IntroEmphasisPart"]</em>
+        @L["IntroPart3"]
     </p>
 
     <hr />
 
-    <h2>Un rassemblement provincial</h2>
+    <h2>@L["ProvincialTitle"]</h2>
+    <p>@L["ProvincialDescription"]</p>
+
+    <h2>@L["WhyCarrefourTitle"]</h2>
     <p>
-        Organisé par et pour les routiers, le Carrefour Polaire réunit une centaine de jeunes
-        adultes de 18 à 25 ans provenant de partout dans la province. 
-        C’est l’occasion parfaite de briser l’isolement des clans, de créer des liens 
-        et d’échanger sur nos expériences respectives.
+        @L["WhyCarrefourPart1"]
+        <em>@L["WhyCarrefourEmphasis"]</em>
+        @L["WhyCarrefourPart2"]
     </p>
 
-    <h2>Pourquoi “Carrefour”?</h2>
-    <p>
-        Dans la branche routière, un <em>carrefour</em> est un moment clé du parcours : 
-        un point de rencontre où les clans se rassemblent pour réfléchir, se ressourcer, 
-        planifier et vivre une expérience commune. Le Carrefour Polaire en est la version hivernale, 
-        où les conditions de froid et de neige deviennent une partie intégrante de l’aventure.
-    </p>
-
-    <h2>Des activités variées</h2>
+    <h2>@L["ActivitiesTitle"]</h2>
     <ul>
-        <li>Défis et activités hivernales (plein air, etc.)</li>
-        <li>Moments de discussion et d’échanges entre routiers</li>
-        <li>Veillées et animations</li>
-        <li>Partage de traditions des différents clans</li>
-        <li>Palabre sur sujet qui touche nos vie</li>
+        <li>@L["Activity1"]</li>
+        <li>@L["Activity2"]</li>
+        <li>@L["Activity3"]</li>
+        <li>@L["Activity4"]</li>
+        <li>@L["Activity5"]</li>
     </ul>
 
-    <h2>Une expérience marquante</h2>
-    <p>
-        Plus qu’une simple fin de semaine, le Carrefour Polaire est une expérience de vie qui 
-        marque le cheminement des routiers depuis plus d'une trenntaine d'années. On y retrouve les trois dimensions essentielles du programme : 
-        <strong>l’aventure, le service et la réflexion</strong>.
-    </p>
+    <h2>@L["ExperienceTitle"]</h2>
+    <p>@L["ExperienceDescription"]</p>
 
     <div class="alert alert-warning mt-4">
-        <strong>Thème de cette année :</strong> « Ça va être fire 🔥 ! »  
-        Préparez-vous à un Carrefour Polaire rempli d’énergie et de chaleur humaine… même au cœur de l’hiver!
+        <strong>@L["ThemeLabel"]</strong> « @L["ThemeText"] »
     </div>
 </div>

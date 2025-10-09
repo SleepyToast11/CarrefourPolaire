@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+      <data name="PageTitle" xml:space="preserve"><value>À propos du Carrefour Polaire</value></data>
+  <data name="WhatIsTitle" xml:space="preserve"><value>Qu’est-ce que le Carrefour Polaire?</value></data>
+
+  <data name="IntroPart1" xml:space="preserve"><value>Le </value></data>
+  <data name="IntroStrongPart" xml:space="preserve"><value>Carrefour Polaire</value></data>
+  <data name="IntroPart2" xml:space="preserve"><value> est un grand rassemblement hivernal des </value></data>
+  <data name="IntroEmphasisPart" xml:space="preserve"><value>clans routiers</value></data>
+  <data name="IntroPart3" xml:space="preserve"><value> du Québec. Chaque année, des dizaines de routiers et routières se réunissent pour partager un moment unique d’amitié, de fraternité et de défis au cœur de l’hiver québécois.</value></data>
+
+  <data name="ProvincialTitle" xml:space="preserve"><value>Un rassemblement provincial</value></data>
+  <data name="ProvincialDescription" xml:space="preserve"><value>Organisé par et pour les routiers, le Carrefour Polaire réunit une centaine de jeunes adultes de 18 à 25 ans provenant de partout dans la province. C’est l’occasion parfaite de briser l’isolement des clans, de créer des liens et d’échanger sur nos expériences respectives.</value></data>
+
+  <data name="WhyCarrefourTitle" xml:space="preserve"><value>Pourquoi “Carrefour”?</value></data>
+  <data name="WhyCarrefourPart1" xml:space="preserve"><value>Dans la branche routière, un </value></data>
+  <data name="WhyCarrefourEmphasis" xml:space="preserve"><value>carrefour</value></data>
+  <data name="WhyCarrefourPart2" xml:space="preserve"><value> est un moment clé du parcours : un point de rencontre où les clans se rassemblent pour réfléchir, se ressourcer, planifier et vivre une expérience commune. Le Carrefour Polaire en est la version hivernale, où les conditions de froid et de neige deviennent une partie intégrante de l’aventure.</value></data>
+
+  <data name="ActivitiesTitle" xml:space="preserve"><value>Des activités variées</value></data>
+  <data name="Activity1" xml:space="preserve"><value>Défis et activités hivernales (plein air, etc.)</value></data>
+  <data name="Activity2" xml:space="preserve"><value>Moments de discussion et d’échanges entre routiers</value></data>
+  <data name="Activity3" xml:space="preserve"><value>Veillées et animations</value></data>
+  <data name="Activity4" xml:space="preserve"><value>Partage de traditions des différents clans</value></data>
+  <data name="Activity5" xml:space="preserve"><value>Palabre sur un sujet qui touche nos vies</value></data>
+
+  <data name="ExperienceTitle" xml:space="preserve"><value>Une expérience marquante</value></data>
+  <data name="ExperienceDescription" xml:space="preserve"><value>Plus qu’une simple fin de semaine, le Carrefour Polaire est une expérience de vie qui marque le cheminement des routiers depuis plus d'une trentaine d'années. On y retrouve les trois dimensions essentielles du programme : l’aventure, le service et la réflexion.</value></data>
+
+  <data name="ThemeLabel" xml:space="preserve"><value>Thème de cette année :</value></data>
+  <data name="ThemeText" xml:space="preserve"><value>Ça va être fire 🔥 ! Préparez-vous à un Carrefour Polaire rempli d’énergie et de chaleur humaine… même au cœur de l’hiver!</value></data>
+</root>
