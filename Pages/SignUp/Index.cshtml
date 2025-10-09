@@ -1,39 +1,41 @@
 @page
 @model IndexModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarrefourPolaire.Resources.Pages.Signup.Index> L
+
 @{
-    ViewData["Title"] = "Create Group";
+    ViewData["Title"] = L["CreateGroupTitle"];
 }
 
-<h2>Create a New Group</h2>
+<h2>@L["CreateGroupHeader"]</h2>
 
 <form method="post">
     <div class="mb-3">
-        <label asp-for="Input.Name" class="form-label"></label>
+        <label asp-for="Input.Name" class="form-label">@L["GroupName"]</label>
         <input asp-for="Input.Name" class="form-control" />
         <span asp-validation-for="Input.Name" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Input.OwnerName" class="form-label"></label>
+        <label asp-for="Input.OwnerName" class="form-label">@L["OwnerName"]</label>
         <input asp-for="Input.OwnerName" class="form-control" />
         <span asp-validation-for="Input.OwnerName" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Input.OwnerEmail" class="form-label"></label>
+        <label asp-for="Input.OwnerEmail" class="form-label">@L["OwnerEmail"]</label>
         <input asp-for="Input.OwnerEmail" class="form-control" />
         <span asp-validation-for="Input.OwnerEmail" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="Input.GroupNumber" class="form-label"></label>
+        <label asp-for="Input.GroupNumber" class="form-label">@L["GroupNumber"]</label>
         <input asp-for="Input.GroupNumber" class="form-control" />
         <span asp-validation-for="Input.GroupNumber" class="text-danger"></span>
     </div>
     
-    <button type="submit" class="btn btn-primary">Create Group</button>
-    
+    <button type="submit" class="btn btn-primary">@L["CreateGroupButton"]</button>
 </form>
+
 <div class="alert alert-danger">
     @Model.ErrorMessage
 </div>

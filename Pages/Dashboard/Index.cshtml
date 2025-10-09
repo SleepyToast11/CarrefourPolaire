@@ -1,32 +1,29 @@
 ﻿@page
+@using CarrefourPolaire.Resources
+@using CarrefourPolaire.Resources.Pages
 @model IndexModel
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResources> S
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarrefourPolaire.Resources.Pages.Dashboard.Index> L
 
 <input type="hidden" name="__RequestVerificationToken" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
 
 @{
-    ViewData["Title"] = "Group Dashboard";
+    ViewData["Title"] = @L["GroupDashboardTitle"];
 }
 
-<h2>Group Dashboard – @Model.Group.Name</h2>
-
-
+<h2>@L["GroupDashboardTitle"]</h2>
 
 <div class="mb-3">
-    <label>Share link:</label>
+    <label>@S["ShareLink"]:</label>
     <input type="text" class="form-control" value="@Model.ShareLink" readonly id="shareLink" />
-    <button class="btn btn-sm btn-outline-primary mt-1" onclick="copyLink()">Copy</button>
-    <!-- Only one button, JS handles everything -->
-    <button type="button" class="btn btn-sm btn-warning mt-2" onclick="regenerateLink()">Regenerate Link</button>
+    <button class="btn btn-sm btn-outline-primary mt-1" onclick="copyLink()">@S["Copy"]</button>
+    <button type="button" class="btn btn-sm btn-warning mt-2" onclick="regenerateLink()">@S["RegenerateLink"]</button>
 </div>
-
-
-
-
 
 <hr />
 
-<h2>Confirmed Participants</h2>
+<h2>@L["ConfirmedParticipants"]</h2>
 <ul id="confirmed-list">
     @foreach (var p in Model.ConfirmedParticipants)
     {
@@ -34,62 +31,56 @@
     }
 </ul>
 
-<h2>Pending Participants</h2>
+<h2>@L["PendingParticipants"]</h2>
 <ul id="pending-list">
     @foreach (var p in Model.PendingParticipants)
     {
         <li id="participant-@p.Id">
             @p.Name (@p.Email)
             <span class="action-buttons">
-                <button onclick="confirmParticipant('@p.Id')">Confirm</button>
-                <button onclick="denyParticipant('@p.Id')">Deny</button>
+                <button onclick="confirmParticipant('@p.Id')">@S["Confirm"]</button>
+                <button onclick="denyParticipant('@p.Id')">@S["Deny"]</button>
             </span>
         </li>
     }
 </ul>
 
 @section Scripts {
-    <script>
-        function copyLink() {
-            const link = document.getElementById("shareLink");
-            link.select();
-            link.setSelectionRange(0, 99999); // for mobile
-            navigator.clipboard.writeText(link.value).then(() => {
-                alert("Link copied to clipboard!");
-            });
-        }
-    </script>
-    <script>
+<script>
+    function copyLink() {
+        const link = document.getElementById("shareLink");
+        link.select();
+        link.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(link.value).then(() => {
+            alert("@S["LinkCopied"]");
+        });
+    }
+
     async function confirmParticipant(id) {
         const response = await fetch('@Url.Page("/Dashboard/Index", "Confirm")', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'RequestVerificationToken': 
+                'RequestVerificationToken':
                     document.querySelector('input[name="__RequestVerificationToken"]').value
             },
             body: JSON.stringify({ participantId: id })
         });
-    
+
         if (response.ok) {
             const participantElement = document.getElementById(`participant-${id}`);
-
-            // Remove the old buttons
             const buttons = participantElement.querySelector(".action-buttons");
             if (buttons) buttons.remove();
-
-            // Move participant to confirmed list
             document.getElementById("confirmed-list").appendChild(participantElement);
-            
         }
     }
-    
+
     async function denyParticipant(id) {
         const response = await fetch('@Url.Page("/Dashboard/Index", "Deny")', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'RequestVerificationToken': 
+                'RequestVerificationToken':
                     document.querySelector('input[name="__RequestVerificationToken"]').value
             },
             body: JSON.stringify({ participantId: id })
@@ -99,27 +90,25 @@
             const li = document.getElementById("participant-" + id);
             li.remove();
         }
-            }
-    </script>
-    <script>
-async function regenerateLink() {
-    const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-    const response = await fetch('@Url.Page("/Dashboard/Index", "RegenerateLink")', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'RequestVerificationToken': token
-        },
-    });
-
-    if (response.ok) {
-        const result = await response.json();
-        document.getElementById("shareLink").value = result.shareLink;
-        alert(result.message);
-    } else {
-        alert("Failed to regenerate link.");
     }
+
+    async function regenerateLink() {
+        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+        const response = await fetch('@Url.Page("/Dashboard/Index", "RegenerateLink")', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': token
+            },
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            document.getElementById("shareLink").value = result.shareLink;
+            alert(result.message);
+        } else {
+            alert("@S["FailedToRegenerate"]");
         }
+    }
 </script>
 }
-

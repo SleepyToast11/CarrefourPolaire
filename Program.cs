@@ -1,7 +1,9 @@
+using System.Globalization;
 using CarrefourPolaire.Data;
 using CarrefourPolaire.Models;
 using CarrefourPolaire.Services;
 using CarrefourPolaire.Services.Interfaces;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -24,8 +26,8 @@ builder.Services.AddScoped<IInviteTokenService, InviteTokenService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
-Console.WriteLine($"Connection: {builder.Configuration.GetConnectionString("DefaultConnection")}");
+
+builder.Services.AddLocalization();
 
 // Register DbContext with connection string
 builder.Services.AddDbContext<EventContext>(options =>
@@ -39,8 +41,29 @@ builder.Services.AddAuthentication("EmailLink")
         options.SlidingExpiration = true;
     });
 
-
+var names = typeof(Program).Assembly.GetManifestResourceNames();
+foreach (var name in names)
+{
+    Console.WriteLine("Embedded resource: " + name);
+}
 var app = builder.Build();
+
+var supportedCultures = new[] { "fr", "en" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture("fr")
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+// Optional: disable automatic Accept-Language fallback if you want FR to always win
+localizationOptions.RequestCultureProviders = new List<IRequestCultureProvider>
+{
+    new QueryStringRequestCultureProvider(),  // ?culture=fr
+    new CookieRequestCultureProvider()        // culture saved in cookie
+    // comment out the AcceptLanguageProvider to avoid browser locale overriding
+    // new AcceptLanguageHeaderRequestCultureProvider()
+};
+
+app.UseRequestLocalization(localizationOptions);
 
 using var scope = app.Services.CreateScope();
 var db = scope.ServiceProvider.GetRequiredService<EventContext>();

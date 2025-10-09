@@ -140,3 +140,13 @@
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.genruntimeconfig.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/ref/CarrefourPolaire.dll
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.sourcelink.json
+/home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/en/CarrefourPolaire.resources.dll
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.SharedResources.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.SharedResources.en.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.csproj.GenerateResource.cache
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/en/CarrefourPolaire.resources.cs
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/en/CarrefourPolaire.resources.dll
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Dashboard.Index.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Signup.Index.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Dashboard.Index.en.resources
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Signup.Index.en.resources

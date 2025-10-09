@@ -15,6 +15,11 @@
         },
         "runtime": {
           "CarrefourPolaire.dll": {}
+        },
+        "resources": {
+          "en/CarrefourPolaire.resources.dll": {
+            "locale": "en"
+          }
         }
       },
       "BouncyCastle.Cryptography/2.6.1": {
