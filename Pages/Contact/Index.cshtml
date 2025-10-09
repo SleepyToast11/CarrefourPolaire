@@ -1,0 +1,19 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@model ContactModel
+@inject IStringLocalizer<CarrefourPolaire.Resources.Pages.Contact.Index> L
+
+@{
+    ViewData["Title"] = L["Title"];
+}
+
+<div class="container mt-4">
+    <h1>@L["Heading"]</h1>
+
+
+    <p>
+        @L["InfoPart1"]
+        <strong>@L["InfoStrongPart"]</strong>
+        @L["InfoPart2"]
+    </p>
+</div>

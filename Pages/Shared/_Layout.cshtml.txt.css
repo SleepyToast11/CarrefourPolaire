@@ -1,0 +1,30 @@
+﻿:root {
+  --primary-blue: #bd712a;
+  --primary-dark: #d62828;
+  --success-green: #2a9d8f;
+  --danger-red: #e63946;
+}
+
+/* Text colors */
+.text-blue { color: var(--primary-blue) !important; }
+.text-darkorange { color: var(--primary-dark) !important; }
+
+/* Buttons */
+.btn-orange { background-color: var(--primary-blue); color: white; }
+.btn-orange:hover { background-color: var(--primary-dark); }
+
+/* Forms */
+.form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.25rem rgba(255, 123, 0, 0.25);
+}
+
+/* Navbar brand */
+.navbar-brand { color: var(--primary-blue) !important; }
+
+/* Card / panel style */
+.card-custom {
+  border: 2px solid var(--primary-blue);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 0.5rem;
+}

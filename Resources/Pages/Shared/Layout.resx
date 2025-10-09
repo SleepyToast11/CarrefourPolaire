@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+    <data name="About" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+    <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+    <data name="Dashboard" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+    <data name="SignIn" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+    <data name="SignOut" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="WinterEvent" xml:space="preserve">
+    <value>Événement 2025</value>
+  </data>
+    <data name="FooterCopyright1" xml:space="preserve">
+    <value>Conception du site et code source © Jerome Sparnaay, tous droits réservés.</value>
+  </data>
+    <data name="FooterCopyright2" xml:space="preserve">
+    <value>Images et contenu textuel © 2025 Équipe d’organisation du Carrefour Polaire, sous licence libre CC BY 4.0.</value>
+  </data>
+    <data name="FooterCopyright3" xml:space="preserve">
+    <value>Site officiel de l’édition 2025 du Carrefour Polaire.</value>
+  </data>
+    <data name="FooterCopyright4" xml:space="preserve">
+    <value>« Carrefour Polaire » est un événement communautaire organisé chaque année par des bénévoles; ce site n’est affilié ni approuvé par aucun autre groupe organisateur.</value>
+  </data>
+    <data name="FooterContact" xml:space="preserve">
+    <value>Contact :</value>
+  </data>
+</root>

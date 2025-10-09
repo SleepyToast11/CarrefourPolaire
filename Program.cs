@@ -25,9 +25,13 @@ builder.Services.AddScoped<IEmailService>(sp =>
 builder.Services.AddScoped<IInviteTokenService, InviteTokenService>();
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+    ;
 
 builder.Services.AddLocalization();
+builder.Services.AddHttpContextAccessor();
 
 // Register DbContext with connection string
 builder.Services.AddDbContext<EventContext>(options =>
@@ -37,7 +41,9 @@ builder.Services.AddAuthentication("EmailLink")
     .AddCookie("EmailLink", options =>
     {
         options.LoginPath = "/Login";  // redirect if unauthenticated
-        options.ExpireTimeSpan = TimeSpan.FromDays(7); // session lifetime
+        options.LogoutPath = "/Logout";
+        options.AccessDeniedPath = "/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromDays(14); // session lifetime
         options.SlidingExpiration = true;
     });
 
@@ -58,9 +64,9 @@ var localizationOptions = new RequestLocalizationOptions()
 localizationOptions.RequestCultureProviders = new List<IRequestCultureProvider>
 {
     new QueryStringRequestCultureProvider(),  // ?culture=fr
-    new CookieRequestCultureProvider()        // culture saved in cookie
+    new CookieRequestCultureProvider(),        // culture saved in cookie
     // comment out the AcceptLanguageProvider to avoid browser locale overriding
-    // new AcceptLanguageHeaderRequestCultureProvider()
+    new AcceptLanguageHeaderRequestCultureProvider()
 };
 
 app.UseRequestLocalization(localizationOptions);
@@ -88,6 +94,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapControllers();
 app.MapRazorPages();
+app.MapFallbackToPage("/Index"); 
 
 app.Run();

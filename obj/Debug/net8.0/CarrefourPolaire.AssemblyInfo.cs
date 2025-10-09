@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarrefourPolaire")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d10768be25048facdfd5f5166dcf50ee0a0882b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c482b59590cb2d712586113a38ba024fd3a49cf8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarrefourPolaire")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarrefourPolaire")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

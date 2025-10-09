@@ -25,8 +25,24 @@
 .navbar-brand { color: var(--primary-blue) !important; }
 
 /* Card / panel style */
+/*.card-custom {*/
+/*  border: 2px solid var(--primary-blue);*/
+/*  box-shadow: 0 4px 10px rgba(0,0,0,0.05);*/
+/*  border-radius: 0.5rem;*/
+/*}*/
+
 .card-custom {
-  border: 2px solid var(--primary-blue);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  border-radius: 0.5rem;
+  border: 2px solid var(--primary-blue); /* Bootstrap-like light border */
+  flex: 1 1 250px; /* grow/shrink but not smaller than 250px */
+  min-width: 250px; /* ensures boxes don’t shrink too much */
+  max-width: 320px; /* keeps them neat on big screens */
+  border-radius: 0.75rem; /* smooth corners */
+  padding: 1.25rem;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-row {
+  gap: 1.5rem; /* space between boxes */
 }

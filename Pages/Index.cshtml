@@ -1,35 +1,37 @@
 ﻿@page
 @model IndexModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CarrefourPolaire.Resources.Pages.Index> L
+
 @{
-    ViewData["Title"] = "Carrefour Polaire";
+    ViewData["Title"] = L["PageTitle"];
 }
 
 <!-- Hero Section -->
 <section class="bg-light text-center py-5">
     <div class="container">
-        <img src="~/images/logo1.svg" alt="Carrefour Polaire" width="80" class="mb-3">
-        <h1 class="display-4 fw-bold text-blue">Carrefour Polaire 2025</h1>
-        <p class="lead mb-4">Winter adventure for scouts aged 18-25 from all over the province. Join us for a weekend full of activities, community, and fun!</p>
-        <a href="/Signup" class="btn btn-orange btn-lg me-2">Sign Up</a>
-        <a href="/Menu" class="btn btn-outline-orange btn-lg">See the Menu</a>
+        <img src="~/images/logo2.svg" alt="@L["LogoAlt"]" width="80" class="mb-3" loading="lazy">
+        <h1 class="display-4 fw-bold text-blue">@L["HeroTitle"]</h1>
+        <p class="lead mb-4">@L["HeroSubtitle"]</p>
+        <a href="/Signup" class="btn btn-orange btn-lg me-2">@L["SignUpButton"]</a>
+        <a href="/Menu" class="btn btn-outline-orange btn-lg">@L["MenuButton"]</a>
     </div>
 </section>
 
 <!-- Event Info Section -->
 <section class="py-5">
     <div class="container text-center">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <h3 class="text-blue">When</h3>
-                <p>January 30th-1st, 2026</p>
+        <div class="row info-row d-flex flex-wrap justify-content-center">
+            <div class="col-md-4 mb-4 card-custom">
+                <h3 class="text-blue">@L["WhenTitle"]</h3>
+                <p>@L["WhenValue"]</p>
             </div>
-            <div class="col-md-4 mb-4">
-                <h3 class="text-blue">Where</h3>
-                <p>Domaine de la butte</p>
+            <div class="col-md-4 mb-4 card-custom">
+                <h3 class="text-blue">@L["WhereTitle"]</h3>
+                <p>@L["WhereValue"]</p>
             </div>
-            <div class="col-md-4 mb-4">
-                <h3 class="text-blue">Who</h3>
-                <p>Scouts aged 15–18</p>
+            <div class="col-md-4 mb-4  card-custom">
+                <h3 class="text-blue">@L["WhoTitle"]</h3>
+                <p>@L["WhoValue"]</p>
             </div>
         </div>
     </div>
@@ -38,35 +40,47 @@
 <!-- Highlights / Features -->
 <section class="bg-light py-5">
     <div class="container text-center">
-        <h2 class="mb-5">What to Expect</h2>
-        <div class="row">
+        <h2 class="mb-5">@L["WhatToExpectTitle"]</h2>
+        <div class=" row  d-flex flex-wrap justify-content-center">
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-blue">Winter Activities</h5>
-                        <p class="card-text">Snow games, outdoor challenges, and team adventures to bring everyone together.</p>
+                        <h5 class="card-title text-blue">@L["Feature1Title"]</h5>
+                        <p class="card-text">@L["Feature1Text"]</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-blue">Community</h5>
-                        <p class="card-text">Meet new friends from all over the province and build lasting memories.</p>
+                        <h5 class="card-title text-blue">@L["Feature2Title"]</h5>
+                        <p class="card-text">@L["Feature2Text"]</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title text-blue">Food & Warmth</h5>
-                        <p class="card-text">Delicious meals with options for allergies, and cozy spaces to relax after the snow.</p>
+                        <h5 class="card-title text-blue">@L["Feature3Title"]</h5>
+                        <p class="card-text">@L["Feature3Text"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-blue">@L["WhatToExpect.ServiceActivity.Title"]</h5>
+                        <p class="card-text">@L["WhatToExpect.ServiceActivity.Description"]</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3566.6450109872158!2d-72.07378523514086!3d46.26030961650889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc7f1613e1523b5%3A0xff438a40f2c635ca!2sDomaine%20de%20la%20Butte!5e1!3m2!1sen!2sca!4v1759541477793!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-
+<!-- Map -->
+<iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3566.6450109872158!2d-72.07378523514086!3d46.26030961650889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc7f1613e1523b5%3A0xff438a40f2c635ca!2sDomaine%20de%20la%20Butte!5e1!3m2!1sen!2sca!4v1759541477793!5m2!1sen!2sca" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>

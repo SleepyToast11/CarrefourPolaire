@@ -1,68 +1,79 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<CarrefourPolaire.Resources.Pages.Shared.Layout> L
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="@System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="~/images/logo2.svg"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>@ViewData["Title"] - Carrefour Polaire</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css"/>
     <style>
-        /* This ensures the content + navbar take at least full viewport height,
-           so the footer starts below the screen */
         .page-wrapper {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        main {
-            flex-grow: 1;
-        }
-        </style>
+        main { flex-grow: 1; }
+    </style>
 </head>
 
 <body class="bg-light text-dark">
-<div class="page-wrapper min-height:100vh">
+<div class="page-wrapper">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <!-- Brand with logo + optional name -->
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="images/logo1.svg" alt="Carrefour Polaire" width="40" height="40" class="me-2">
+                <img src="~/images/logo2.svg" alt="Carrefour Polaire" width="40" height="40" class="me-2">
                 <span class="text-blue fw-bold">Carrefour Polaire</span>
             </a>
 
-            <!-- Hamburger menu for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPublic" aria-controls="navbarPublic" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menu items -->
             <div class="collapse navbar-collapse" id="navbarPublic">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- Menu link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Menu">Menu</a>
-                    </li>
-                    <!-- Optional: About link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/About">About</a>
-                    </li>
-                    <!-- Optional: Contact link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/Menu">@L["Menu"]</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/About">@L["About"]</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Contact">@L["Contact"]</a></li>
+                    @if (HttpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <li class="nav-item"><a class="nav-link" href="/Dashboard">@L["Dashboard"]</a></li>
+                    }
                 </ul>
 
-                <!-- Right-side info/sign in -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item me-3">
-                        <span class="navbar-text text-darkorange">Winter 2025 Event</span>
+                        <span class="navbar-text text-darkorange">@L["WinterEvent"]</span>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-orange" href="/Login">Sign In</a>
+                    @if (HttpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <li class="nav-item">
+                            <form method="post" action="/Logout" asp-antiforgery="true">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-outline-danger">@L["SignOut"]</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="btn btn-orange" href="/Login">@L["SignIn"]</a></li>
+                    }
+
+                    <li class="nav-item ms-2">
+                        @{
+                            var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+                            var oppositeCulture = currentCulture == "fr" ? "en" : "fr";
+                        }
+                        <a class="btn btn-outline-secondary" href="/ChangeLanguage?culture=@oppositeCulture&returnUrl=@HttpContextAccessor.HttpContext.Request.Path">
+                            @oppositeCulture.ToUpper()
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -78,11 +89,15 @@
 
 <footer class="bg-dark text-light text-center py-3 mt-auto">
     <div class="container">
-        <p>&copy; 2025 Carrefour Polaire. All rights reserved.</p>
-        <p>Contact: <a href="mailto:info@carrefourpolaire.com" class="text-blue">info@carrefourpolaire.com</a></p>
+        <p>@L["FooterCopyright1"]</p>
+        <p>@L["FooterCopyright2"]</p>
+        <p>@L["FooterCopyright3"]</p>
+        <p>@L["FooterCopyright4"]</p>
+        <p>@L["FooterContact"] <a href="mailto:info@carrefourpolaire.com" class="text-blue">info@carrefourpolaire.com</a></p>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 @RenderSection("Scripts", required: false)
 </body>
+</html>
