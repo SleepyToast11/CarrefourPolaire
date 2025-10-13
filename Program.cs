@@ -1,6 +1,7 @@
 using System.Globalization;
 using CarrefourPolaire.Data;
 using CarrefourPolaire.Models;
+using CarrefourPolaire.Models.Configs;
 using CarrefourPolaire.Services;
 using CarrefourPolaire.Services.Interfaces;
 using Microsoft.AspNetCore.Localization;
@@ -22,7 +23,6 @@ builder.Services.AddScoped<IEmailService>(sp =>
     }
     );
 
-builder.Services.AddScoped<IInviteTokenService, InviteTokenService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages()
