@@ -14,7 +14,7 @@ public class LogoutController : Controller
         await HttpContext.SignOutAsync("EmailLink");
 
         // Optionally clear session or other data if you use it
-        HttpContext.Session?.Clear();
+        //HttpContext.Session?.Clear();
 
         // Redirect to home (or localized home)
         return Redirect("/");

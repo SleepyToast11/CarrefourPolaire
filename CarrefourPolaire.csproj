@@ -98,4 +98,8 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Token\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

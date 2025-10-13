@@ -65,7 +65,7 @@ public class CreateConfirmModel : PageModel
             registration.Participants = looseParticipants;
             await _context.SaveChangesAsync();
             
-            return RedirectToPage("./Dashboard");
+            return RedirectToPage("/Dashboard/Login");
         }
         catch (Exception e)
         {

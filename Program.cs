@@ -23,6 +23,7 @@ builder.Services.AddScoped<IEmailService>(sp =>
     }
     );
 
+builder.Services.AddScoped<IInviteTokenService, InviteTokenService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages()
@@ -47,11 +48,7 @@ builder.Services.AddAuthentication("EmailLink")
         options.SlidingExpiration = true;
     });
 
-var names = typeof(Program).Assembly.GetManifestResourceNames();
-foreach (var name in names)
-{
-    Console.WriteLine("Embedded resource: " + name);
-}
+
 var app = builder.Build();
 
 var supportedCultures = new[] { "fr", "en" };

@@ -73,13 +73,13 @@ public async Task<IActionResult> OnGetAsync()
         var newToken = await _tokenService.CreateNewTokenAsync(groupId);
 
         var newLink = Url.Page(
-            "/ParticipantJoin",
+            "/Dashboard/ParticipantJoin",
             null,
             values: new { token = newToken.Token },
             Request.Scheme
         );
         
-        
+        Console.WriteLine("oog");
         return new JsonResult(new { shareLink = newLink, message = "A new invite link has been generated. Old ones are now invalid." });
     }
 

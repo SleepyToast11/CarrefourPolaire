@@ -57,10 +57,8 @@ public class LoginConfirmModel : PageModel
                 ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
             });
             
-            var url = Url.Page("/Dashboard");
-            if (url == null) throw new Exception("Dashboard page URL not found");
 
-            return RedirectToPage("/Dashboard");
+            return RedirectToPage("/Dashboard/Index");
         }
         catch (Exception e)
         {
