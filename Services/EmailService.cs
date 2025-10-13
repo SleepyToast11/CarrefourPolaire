@@ -1,4 +1,5 @@
 using CarrefourPolaire.Models;
+using CarrefourPolaire.Models.Configs;
 using CarrefourPolaire.Services.Interfaces;
 using MailKit.Net.Smtp;
 using MimeKit;

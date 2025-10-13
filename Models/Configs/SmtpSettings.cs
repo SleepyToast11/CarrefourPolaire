@@ -1,4 +1,4 @@
-namespace CarrefourPolaire.Models;
+namespace CarrefourPolaire.Models.Configs;
 
 public class SmtpSettings
 {
