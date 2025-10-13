@@ -1,4 +1,5 @@
-﻿@using Microsoft.Extensions.Localization
+﻿@using CarrefourPolaire.Domain.Entities.User
+@using Microsoft.Extensions.Localization
 @inject IStringLocalizer<CarrefourPolaire.Resources.Pages.Shared.Layout> L
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
@@ -42,9 +43,29 @@
                     <li class="nav-item"><a class="nav-link" href="/Menu">@L["Menu"]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/About">@L["About"]</a></li>
                     <li class="nav-item"><a class="nav-link" href="/Contact">@L["Contact"]</a></li>
-                    @if (HttpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? false)
+                    @if (HttpContextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false)
                     {
-                        <li class="nav-item"><a class="nav-link" href="/Dashboard">@L["Dashboard"]</a></li>
+                        var user = HttpContextAccessor.HttpContext.User;
+                        
+                        if (user.IsInRole(nameof(UserRole.GroupLeader)))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Dashboard">@L["Dashboard"]</a></li>
+                        }
+                        if (user.IsInRole(nameof(UserRole.Admin)))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @L["Admin"]
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" href="/Admin/Allergies">@L["Allergies"]</a></li>
+                                    <li><a class="dropdown-item" href="/Admin/Food">@L["Food"]</a></li>
+                                    <li><a class="dropdown-item" href="/Admin/Permissions">@L["Permissions"]</a></li>
+                                    <li><a class="dropdown-item" href="/Admin/Participants">@L["Participants"]</a></li>
+                                    <li><a class="dropdown-item" href="/Admin/Groups">@L["Groups"]</a></li>
+                                </ul>
+                            </li>
+                        }
                     }
                 </ul>
 
