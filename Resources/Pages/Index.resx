@@ -21,8 +21,8 @@
     
       <data name="PageTitle" xml:space="preserve"><value>Carrefour Polaire</value></data>
   <data name="LogoAlt" xml:space="preserve"><value>Logo du Carrefour Polaire</value></data>
-  <data name="HeroTitle" xml:space="preserve"><value>Carrefour Polaire 2025</value></data>
-  <data name="HeroSubtitle" xml:space="preserve"><value>Aventure hivernale pour les routiers et routières de 18 à 25 ans de partout au Québec. Joins-toi à nous pour une fin de semaine remplie d’activités, de camaraderie et de plaisir!</value></data>
+  <data name="HeroTitle" xml:space="preserve"><value>Carrefour Polaire 2026</value></data>
+  <data name="HeroSubtitle" xml:space="preserve"><value>Aventure hivernale pour les routiers et routières de 17 à 25 ans de partout au Québec. Joins-toi à nous pour une fin de semaine remplie d’activités, de camaraderie et de plaisir!</value></data>
   <data name="SignUpButton" xml:space="preserve"><value>Inscription</value></data>
   <data name="MenuButton" xml:space="preserve"><value>Voir le menu</value></data>
 
@@ -31,7 +31,7 @@
   <data name="WhereTitle" xml:space="preserve"><value>Où</value></data>
   <data name="WhereValue" xml:space="preserve"><value>Domaine de la Butte</value></data>
   <data name="WhoTitle" xml:space="preserve"><value>Pour qui</value></data>
-  <data name="WhoValue" xml:space="preserve"><value>Routiers et routières de 18 à 25 ans</value></data>
+  <data name="WhoValue" xml:space="preserve"><value>Routiers et routières de 17 à 25 ans</value></data>
 
   <data name="WhatToExpectTitle" xml:space="preserve"><value>À quoi s’attendre</value></data>
   <data name="Feature1Title" xml:space="preserve"><value>Activités hivernales</value></data>

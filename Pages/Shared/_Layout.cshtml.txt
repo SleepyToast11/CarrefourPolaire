@@ -73,7 +73,7 @@
                 <!-- Right-side info/sign in -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item me-3">
-                        <span class="navbar-text text-darkorange">Winter 2025 Event</span>
+                        <span class="navbar-text text-darkorange">Winter 2026 Event</span>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-orange" href="/Login">Sign In</a>

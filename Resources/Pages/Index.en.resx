@@ -14,8 +14,8 @@
     
     <data name="PageTitle" xml:space="preserve"><value>Carrefour Polaire</value></data>
     <data name="LogoAlt" xml:space="preserve"><value>Carrefour Polaire logo</value></data>
-    <data name="HeroTitle" xml:space="preserve"><value>Carrefour Polaire 2025</value></data>
-    <data name="HeroSubtitle" xml:space="preserve"><value>Winter adventure for scouts aged 18–25 from across the province. Join us for a weekend full of activities, community, and fun!</value></data>
+    <data name="HeroTitle" xml:space="preserve"><value>Carrefour Polaire 2026</value></data>
+    <data name="HeroSubtitle" xml:space="preserve"><value>Winter adventure for scouts aged 17–25 from across the province. Join us for a weekend full of activities, community, and fun!</value></data>
     <data name="SignUpButton" xml:space="preserve"><value>Sign Up</value></data>
     <data name="MenuButton" xml:space="preserve"><value>See the Menu</value></data>
 
@@ -24,7 +24,7 @@
     <data name="WhereTitle" xml:space="preserve"><value>Where</value></data>
     <data name="WhereValue" xml:space="preserve"><value>Domaine de la Butte</value></data>
     <data name="WhoTitle" xml:space="preserve"><value>Who</value></data>
-    <data name="WhoValue" xml:space="preserve"><value>Scouts aged 18–25</value></data>
+    <data name="WhoValue" xml:space="preserve"><value>Scouts aged 17–25</value></data>
 
     <data name="WhatToExpectTitle" xml:space="preserve"><value>What to Expect</value></data>
     <data name="Feature1Title" xml:space="preserve"><value>Winter Activities</value></data>
