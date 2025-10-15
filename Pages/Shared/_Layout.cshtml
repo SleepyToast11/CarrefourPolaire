@@ -25,6 +25,12 @@
 </head>
 
 <body class="bg-light text-dark">
+
+<!-- Development Banner -->
+<div class="bg-warning text-dark text-center py-2 fw-semibold" style="font-size: 1rem;">
+    @L["InDevelopment"]
+</div>
+
 <div class="page-wrapper">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -46,11 +52,12 @@
                     @if (HttpContextAccessor.HttpContext?.User.Identity?.IsAuthenticated ?? false)
                     {
                         var user = HttpContextAccessor.HttpContext.User;
-                        
+
                         if (user.IsInRole(nameof(UserRole.GroupLeader)))
                         {
                             <li class="nav-item"><a class="nav-link" href="/Dashboard">@L["Dashboard"]</a></li>
                         }
+
                         if (user.IsInRole(nameof(UserRole.Admin)))
                         {
                             <li class="nav-item dropdown">

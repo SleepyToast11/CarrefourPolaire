@@ -45,6 +45,12 @@ namespace CarrefourPolaire.Resources.Pages.Shared {
             }
         }
         
+        internal static string InDevelopment {
+            get {
+                return ResourceManager.GetString("InDevelopment", resourceCulture);
+            }
+        }
+        
         internal static string Menu {
             get {
                 return ResourceManager.GetString("Menu", resourceCulture);
