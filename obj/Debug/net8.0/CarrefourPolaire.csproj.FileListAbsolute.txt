@@ -1,7 +1,6 @@
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/appsettings.Development.json
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/appsettings.json
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire.staticwebassets.runtime.json
-/home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire.staticwebassets.endpoints.json
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire.deps.json
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire.runtimeconfig.json
@@ -115,7 +114,6 @@
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
 /home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.csproj.AssemblyReference.cache
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rpswa.dswa.cache.json
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.GeneratedMSBuildEditorConfig.editorconfig
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.AssemblyInfoInputs.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.AssemblyInfo.cs
@@ -123,17 +121,11 @@
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.MvcApplicationPartsAssemblyInfo.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.RazorAssemblyInfo.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.RazorAssemblyInfo.cs
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjimswa.dswa.cache.json
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/scopedcss/bundle/CarrefourPolaire.styles.css
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/scopedcss/projectbundle/CarrefourPolaire.bundle.scp.css
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.build.json
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.build.json.cache
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.development.json
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.build.endpoints.json
-/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/Carrefou.9C95F402.Up2Date
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.dll
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/refint/CarrefourPolaire.dll
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.pdb
@@ -158,3 +150,11 @@
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Contact.Index.en.resources
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Shared.Layout.resources
 /home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/CarrefourPolaire.Resources.Pages.Shared.Layout.en.resources
+/home/jsparnaay/CarrefourPolaire/bin/Debug/net8.0/CarrefourPolaire.staticwebassets.endpoints.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rpswa.dswa.cache.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjimswa.dswa.cache.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.build.json.cache
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/home/jsparnaay/CarrefourPolaire/obj/Debug/net8.0/Carrefou.9C95F402.Up2Date

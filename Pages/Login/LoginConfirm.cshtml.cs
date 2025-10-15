@@ -23,7 +23,7 @@ public class LoginConfirmModel : PageModel
     {
         try
         {
-            var loginToken = await _context.EmailLoginTokens.Include(elt => elt.Registration).FirstOrDefaultAsync(t => t.Id == token);
+            var loginToken = await _context.EmailLoginTokens.Include(elt => elt.Registration).FirstOrDefaultAsync(t => t.Id == token && t.ExpiresAt > DateTime.UtcNow);
 
             if (loginToken == null || loginToken.Used || loginToken.ExpiresAt < DateTime.UtcNow)
             {
@@ -33,13 +33,6 @@ public class LoginConfirmModel : PageModel
 
             loginToken.Used = true;
             await _context.SaveChangesAsync();
-        
-            var prevRegGroup = await _context.RegistrationGroups.SingleOrDefaultAsync(rg => rg.GroupNumber == loginToken.Registration.GroupNumber && rg.Confirmed);
-    
-            if (prevRegGroup == null)
-            {
-                throw new Exception("Registration group not found.");
-            }
             
             var claims = new List<Claim>
             {

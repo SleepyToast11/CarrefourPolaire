@@ -22,7 +22,7 @@ public class IndexModel : PageModel
     public string? ErrorMessage { get; set; }
 
     [BindProperty]
-    public RegistrationGroup Input { get; set; } = new();
+    public RegistrationGroupInput Input { get; set; } = new();
 
     public async Task<IActionResult> OnPostAsync()
     {
@@ -31,37 +31,71 @@ public class IndexModel : PageModel
             return Page();
         }
 
-        //Group logic
-        var prevRegGroupExists = await _context.RegistrationGroups.AnyAsync(rg => rg.GroupNumber == Input.GroupNumber && rg.Confirmed);
-        
-        if (prevRegGroupExists)
+        var user = _context.Users.FirstOrDefault(u => u.Confirmed && u.Email == Input.OwnerEmail);
+
+        //If user does exist, will create a login link instead
+        if (user != null)
         {
-            var prevRegGroup =
-                await _context.RegistrationGroups.FirstAsync(rg => rg.GroupNumber == Input.GroupNumber && rg.Confirmed);
-            ErrorMessage = $"A group is already registered please contact: {prevRegGroup.OwnerName}. Please contact xyz@example.com if you need additional assistance."; //TODO: set the correct email
-            return Page();
+            var token = new EmailLoginToken
+                {
+                    Email = Input.OwnerEmail,
+                    ExpiresAt = DateTime.UtcNow.AddMinutes(30)
+                };
+            
+            _context.EmailLoginTokens.Add(token);
+            await _context.SaveChangesAsync();
+            
+            var loginLink = Url.Page(
+                "/Login/LoginConfirm",
+                pageHandler: null,
+                values: new { token = token.Id },
+                protocol: Request.Scheme);
+            
+            if (loginLink != null)
+                await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
         }
-        _context.RegistrationGroups.Add(Input);
-
-        //Token logic
-        var token = new EmailVerificationToken()
+        else
         {
-            Email = Input.OwnerEmail,
-            ExpiresAt = DateTime.UtcNow.AddMinutes(30),
-            RegistrationId = Input.Id
-        };
-
-        var loginLink = Url.Page(
-            "/Signup/CreateConfirm",
-            pageHandler: null,
-            values: new { token = token.Id },
-            protocol: Request.Scheme);
-        Console.WriteLine(loginLink);
-        await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
-        ErrorMessage = "Check your email for the login link, might be in junk!";
+            var registration = new RegistrationGroup()
+            {
+                Confirmed = false,
+                OwnerEmail = Input.OwnerEmail,
+                Name = Input.Name,
+            };
         
-        _context.EmailVerificationTokens.Add(token);
-        await _context.SaveChangesAsync();
+            var User = new User()
+            {
+                Email = Input.OwnerEmail,
+                RegistrationGroup = registration,
+                UserRoles = new() { UserRole.GroupLeader },
+                Confirmed = false,
+            };
+        
+            //Token logic
+            var token = new EmailVerificationToken()
+            {
+                Email = Input.OwnerEmail,
+                ExpiresAt = DateTime.UtcNow.AddMinutes(30),
+                Registration = registration,
+                User = User,
+                Used = false,
+            };
+
+            var loginLink = Url.Page(
+                "/Signup/CreateConfirm",
+                pageHandler: null,
+                values: new { token = token.Id },
+                protocol: Request.Scheme);
+            
+            Console.WriteLine(loginLink);
+            
+            await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
+            ErrorMessage = "Check your email for the login link, might be in junk!";
+        
+            _context.EmailVerificationTokens.Add(token);
+            await _context.SaveChangesAsync();
+
+        }
 
         return Page();
     }

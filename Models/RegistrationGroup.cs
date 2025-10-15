@@ -8,7 +8,6 @@ public class RegistrationGroup
     
     [Required, MaxLength(256)]
     public string Name { get; set; } = "";
-    public int GroupNumber { get; set; }
     
     [Required, MaxLength(256)]
     public string OwnerName { get; set; } = "";

@@ -22,28 +22,27 @@ public class CreateConfirmModel : PageModel
     {
         try
         {
-            var loginToken = await _context.EmailVerificationTokens.Include(elt => elt.Registration).FirstOrDefaultAsync(t => t.Id == token);
-    
-            if (loginToken == null || loginToken.Used || loginToken.ExpiresAt < DateTime.UtcNow)
+            var loginToken = await _context.EmailVerificationTokens
+                .Include(elt => elt.Registration)
+                .Include(elt => elt.User)
+                .FirstOrDefaultAsync(t => t.Id == token);
+            if (loginToken == null || loginToken.Used || loginToken.ExpiresAt > DateTime.UtcNow)
             {
                 Message = "Invalid or expired link.";
                 return Page();
             }
-    
+            
+            loginToken.User.Confirmed = true;
             loginToken.Used = true;
+            loginToken.Registration.Confirmed = true;
+            
             await _context.SaveChangesAsync();
-        
-            var prevRegGroup = await _context.RegistrationGroups.SingleOrDefaultAsync(rg => rg.GroupNumber == loginToken.Registration.GroupNumber && rg.Confirmed);
-    
-            if (prevRegGroup != null)
-            {
-                Message = $"A group is already registered please contact: {prevRegGroup.OwnerName}. Please contact xyz@example.com if you need additional assistance."; //TODO: set the correct email
-                return Page();
-            }
             
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, loginToken.Email),
+                new Claim(ClaimTypes.NameIdentifier, loginToken.User.Id.ToString()),
+                new Claim(ClaimTypes.Name,  loginToken.User.Email),
+                new Claim(ClaimTypes.Email, loginToken.User.Email),
                 new Claim(ClaimTypes.Role, nameof(UserRole.GroupLeader)),
                 new Claim("GroupId", loginToken.RegistrationId.ToString())
             };
@@ -57,15 +56,11 @@ public class CreateConfirmModel : PageModel
                 ExpiresUtc = DateTimeOffset.UtcNow.AddDays(7)
             });
         
-            Message = $"Logged in as {loginToken.Email}\nJoin link: ";
+            Message = $"Logged in as {loginToken.User.Email}\nJoin link: ";
             
-            var registration = loginToken.Registration;
-            loginToken.Registration.Confirmed = true;
-            var looseParticipants = _context.Participants.Where(p => p.GroupNumber == registration.GroupNumber).ToList();
-            registration.Participants = looseParticipants;
             await _context.SaveChangesAsync();
             
-            return RedirectToPage("/Dashboard/Login");
+            return RedirectToPage("/Dashboard/Index");
         }
         catch (Exception e)
         {

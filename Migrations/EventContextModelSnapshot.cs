@@ -34,7 +34,7 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Allergies");
+                    b.ToTable("Allergies", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.EmailLoginToken", b =>
@@ -64,7 +64,7 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasIndex("RegistrationId");
 
-                    b.ToTable("EmailLoginTokens");
+                    b.ToTable("EmailLoginTokens", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.EmailVerificationToken", b =>
@@ -90,11 +90,16 @@ namespace CarrefourPolaire.Migrations
                     b.Property<bool>("Used")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RegistrationId");
 
-                    b.ToTable("EmailVerificationTokens");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("EmailVerificationTokens", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.GroupInviteToken", b =>
@@ -122,7 +127,7 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("GroupInviteTokens");
+                    b.ToTable("GroupInviteTokens", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.Participant", b =>
@@ -151,7 +156,7 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasIndex("RegistrationGroupId");
 
-                    b.ToTable("Participants");
+                    b.ToTable("Participants", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.RegistrationGroup", b =>
@@ -162,9 +167,6 @@ namespace CarrefourPolaire.Migrations
 
                     b.Property<bool>("Confirmed")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("GroupNumber")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -183,11 +185,40 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupNumber")
-                        .IsUnique()
-                        .HasFilter("\"Confirmed\" = TRUE");
+                    b.ToTable("RegistrationGroups", (string)null);
+                });
 
-                    b.ToTable("RegistrationGroups");
+            modelBuilder.Entity("CarrefourPolaire.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("Confirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<Guid?>("ParticipantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("RegistrationGroupId")
+                        .HasColumnType("uuid");
+
+                    b.PrimitiveCollection<int[]>("UserRoles")
+                        .IsRequired()
+                        .HasColumnType("integer[]");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParticipantId");
+
+                    b.HasIndex("RegistrationGroupId");
+
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("ParticipantAllergy", b =>
@@ -202,7 +233,7 @@ namespace CarrefourPolaire.Migrations
 
                     b.HasIndex("AllergyId");
 
-                    b.ToTable("ParticipantAllergy");
+                    b.ToTable("ParticipantAllergy", (string)null);
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.EmailLoginToken", b =>
@@ -224,7 +255,15 @@ namespace CarrefourPolaire.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CarrefourPolaire.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Registration");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CarrefourPolaire.Models.GroupInviteToken", b =>
@@ -245,6 +284,21 @@ namespace CarrefourPolaire.Migrations
                         .HasForeignKey("RegistrationGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("RegistrationGroup");
+                });
+
+            modelBuilder.Entity("CarrefourPolaire.Models.User", b =>
+                {
+                    b.HasOne("CarrefourPolaire.Models.Participant", "Participant")
+                        .WithMany()
+                        .HasForeignKey("ParticipantId");
+
+                    b.HasOne("CarrefourPolaire.Models.RegistrationGroup", "RegistrationGroup")
+                        .WithMany()
+                        .HasForeignKey("RegistrationGroupId");
+
+                    b.Navigation("Participant");
 
                     b.Navigation("RegistrationGroup");
                 });

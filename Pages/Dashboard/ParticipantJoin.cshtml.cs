@@ -63,7 +63,6 @@ public class ParticipantJoinModel : PageModel
         {
             Id = Guid.NewGuid(),
             RegistrationGroupId = invite.GroupId,
-            GroupNumber = invite.Group.GroupNumber,
             Name = Input.Name,
             Email = Input.Email,
             Allergies = allergies,

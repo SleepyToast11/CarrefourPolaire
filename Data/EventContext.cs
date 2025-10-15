@@ -22,11 +22,6 @@ namespace CarrefourPolaire.Data;
                     j.HasKey("ParticipantId", "AllergyId"); // composite primary key ensures uniqueness
                 }
             );
-        //Insures that only 1 registration has the group number and is confirmed, else multiple unconfirmed with the same GN is fine
-        modelBuilder.Entity<RegistrationGroup>()
-            .HasIndex(r => r.GroupNumber)
-            .IsUnique()
-            .HasFilter("\"Confirmed\" = TRUE"); // PostgreSQL-specific filter
     }
 
     public EventContext(DbContextOptions<EventContext> options) : base(options)
@@ -40,5 +35,5 @@ namespace CarrefourPolaire.Data;
     public DbSet<Allergy> Allergies { get; set; } = null!;
     public DbSet<EmailLoginToken> EmailLoginTokens { get; set; } = null!;
     public DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; } = null!;
-
+    public DbSet<User> Users { get; set; } = null!;
 }
