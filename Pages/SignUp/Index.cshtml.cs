@@ -50,10 +50,11 @@ public class IndexModel : PageModel
                 pageHandler: null,
                 values: new { token = token.Id },
                 protocol: Request.Scheme);
-            
+
             if (loginLink != null)
-                        //TODO: maybe change this
-                //await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
+                ;
+            //TODO: maybe change this
+            //await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
         }
         else
         {
