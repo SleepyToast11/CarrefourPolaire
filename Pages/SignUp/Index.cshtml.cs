@@ -52,7 +52,8 @@ public class IndexModel : PageModel
                 protocol: Request.Scheme);
             
             if (loginLink != null)
-                await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
+                        //TODO: maybe change this
+                //await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
         }
         else
         {
@@ -89,7 +90,8 @@ public class IndexModel : PageModel
             
             Console.WriteLine(loginLink);
             
-            await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
+            //TODO: maybe change this
+            //await _emailService.SendEmail(Input.OwnerEmail, "Magic link", loginLink);
             ErrorMessage = "Check your email for the login link, might be in junk!";
         
             _context.EmailVerificationTokens.Add(token);
